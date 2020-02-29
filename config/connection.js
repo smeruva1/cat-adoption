@@ -1,12 +1,16 @@
 // Set up MySQL connection.
 var mysql = require("mysql");
 
+//load environment variables
+require('dotenv').config();
+
+//Create connection to DB
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
-  user: "root",
-  password: "",
-  database: "cat_db"
+  user: process.env.DB_USER,
+  password: process.env.DB_PW,
+  database: process.env.DB_NAME
 });
 
 // Make connection.
